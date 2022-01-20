@@ -1,4 +1,4 @@
-import '../css/menu.css'
+import '../css/nav-bar.css'
 
 export default function   Menu(){
     return(

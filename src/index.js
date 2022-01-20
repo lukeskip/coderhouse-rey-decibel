@@ -2,11 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
 
-import Menu from './components/menu.js';
+import NavBar from './components/NavBar.js';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Menu/>
+    <NavBar/>
   </React.StrictMode>,
   document.getElementById('root')
 );
