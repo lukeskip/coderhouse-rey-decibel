@@ -2,11 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
 
+
 import NavBar from './components/NavBar.js';
+import ItemListContainer from './components/ItemListContainer';
 
 ReactDOM.render(
   <React.StrictMode>
     <NavBar/>
+    <ItemListContainer greeting="Aqui va el prop ItemListContainer"></ItemListContainer>
   </React.StrictMode>,
   document.getElementById('root')
 );
