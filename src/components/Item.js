@@ -1,8 +1,8 @@
 
 
-export default function ItemDetailContainer ({key,title,image}){
+export default function Item ({key,title,image}){
     return (
-        <div className="product-detail" id={key}>
+        <div className="product" id={key}>
             <div className="image" style={{ backgroundImage: `url(${image})` }}>
               
             </div>
