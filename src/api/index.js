@@ -4,7 +4,7 @@ const items = [
         title:"Bajo Jazz Bass",
         brand: "Fender",
         price: 12000,
-        category:"basses",
+        category:"bajos",
         image:"https://eusica.mx/product/image/medium/0370451551_bass_2.jpg"
     },
     {
@@ -12,7 +12,7 @@ const items = [
         title:"Guitarra Les Paul",
         brand: "Gibson",
         price: 11000,
-        category:"guitars",
+        category:"guitarras",
         image:"https://eusica.mx/product/image/large/lptr00sinh1_lp_tribute_lptr00sinh1_1.jpg"
     },
     {
@@ -20,7 +20,7 @@ const items = [
         title:"Guitarra Telecaster",
         brand: "Fender",
         price: 9000,
-        category:"guitars",
+        category:"guitarras",
         image:"https://eusica.mx/product/image/large/0146230721_tele_1.jpg"
     },
     {
@@ -28,7 +28,7 @@ const items = [
         title:"Guitarra RGA42FM-BLF",
         brand: "Ibanez",
         price: 11480,
-        category:"guitars",
+        category:"guitarras",
         image:"https://eusica.mx/product/image/medium/2401502806_gretsch_g6136t_2401502806_1.jpg"
     },
     {
@@ -36,7 +36,7 @@ const items = [
         title:"Vox WAH V847-A",
         brand: "VOX",
         price: 2200,
-        category:"pedals",
+        category:"pedales",
         image:"https://eusica.mx/product/image/large/wah%20v847-a_v847-wah-pedal-vox-1.jpg"
 
     },
@@ -45,7 +45,7 @@ const items = [
       title:"Fender Nate Mendel P Bass",
       brand: "Fender",
       price: 26467,
-      category:"basses",
+      category:"bajos",
       image: "https://eusica.mx/product/image/large/0142500309_1.jpg"
   }
 ]
@@ -54,7 +54,7 @@ const items = [
 function getItems() {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        resolve(items);
+        resolve(items); 
       }, 500)
     });
   }

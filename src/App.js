@@ -1,6 +1,8 @@
 import './App.css';
 import NavBar from './components/NavBar.js';
 import ItemListContainer from './components/ItemListContainer';
+import ItemDetailContainer from './components/ItemDetailContainer';
+import { Routes,Route } from 'react-router-dom';
 
 
 
@@ -11,7 +13,13 @@ function App() {
         <NavBar/>
       </header>
       <main>
-        <ItemListContainer greetings="Aqui va el prop ItemListContainer"></ItemListContainer>
+
+        <Routes>
+          <Route path="/" element={<ItemListContainer />}/>
+          <Route path="/producto/:itemId" element={<ItemDetailContainer />}/>
+          <Route path="/categoria/:categoryName" element={<ItemListContainer/>}/>
+        </Routes>
+        
       </main>
     </div>
   );
