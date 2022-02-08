@@ -1,6 +1,5 @@
 
 import { useState,useEffect } from "react";
-import ItemDetailContainer from './ItemDetailContainer';
 import { getItems } from "../api";
 import ListItems from "./ListItems";
 import '../css/product-detail.css';

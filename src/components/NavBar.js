@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 export default function   NavBar(){
     return(
         <div className="main-menu">
-            <img className='logo' src={require("../img/logo.png")} alt="" />
+            <Link to="/"><img className='logo' src={require("../img/logo.png")} alt="" /></Link>
             <ul>
             
                 <li><Link to="/categoria/bajos"> Bajos</Link></li>
