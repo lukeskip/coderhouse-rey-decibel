@@ -17,4 +17,21 @@
   background-position: center;
 }
 
-/*# sourceMappingURL=product-detail.css.map */
+.product-detail {
+  display: flex;
+  width: 100%;
+}
+.product-detail .image {
+  width: 50%;
+}
+.product-detail .image img {
+  height: 80vh;
+}
+.product-detail .product-counter {
+  display: flex;
+}
+.product-detail .price {
+  margin: 20px auto;
+}
+
+/*# sourceMappingURL=products.css.map */

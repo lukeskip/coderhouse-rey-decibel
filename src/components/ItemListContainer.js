@@ -1,8 +1,7 @@
-
 import { useState,useEffect } from "react";
 import { getItems } from "../api";
 import ListItems from "./ListItems";
-import '../css/product-detail.css';
+import '../css/products.css';
 import { useParams } from "react-router-dom";
 
 export default function ItemListContainer ({greetings}){

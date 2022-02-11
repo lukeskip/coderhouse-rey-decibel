@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 
-export default function ItemCount({stock,initial}){
+export default function ItemCount({stock,initial,onAddItem}){
 
     const [counter,setCounter] = useState(initial);
 
@@ -15,13 +15,22 @@ export default function ItemCount({stock,initial}){
             setCounter (counter - 1);
         }
     }
+
+    function addToCart(){
+        onAddItem(counter)
+    }
+
     return(
-        <div className="counterContainer">
-            <button onClick={subs}>-</button>
-            <div className="counter">
-                {counter}
+        <div className="product-addcart">
+            <div className="product-counter">
+                <button className='button' onClick={subs}>-</button>
+                <div className="counter">
+                    {counter}
+                </div>
+                <button className='button' onClick={add}>+</button>
             </div>
-            <button onClick={add}>+</button>
+            <button className="button" onClick={addToCart}>Agregar al carrito</button>
         </div>
+
     );
 }

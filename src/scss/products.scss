@@ -19,3 +19,20 @@
 
     }
 }
+
+.product-detail{
+    display: flex;
+    width: 100%;
+    .image{
+        width: 50%;
+        img{
+            height:80vh
+        }
+    }
+    .product-counter{
+        display: flex;
+    }
+    .price{
+        margin: 20px auto;
+    }
+}
