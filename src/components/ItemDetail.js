@@ -1,15 +1,16 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import ItemCount from "./ItemCount"
 import { Link } from "react-router-dom";
+import {CartContext} from "../contexts/CartContext";
 
 export default function ItemDetail({item}){
     const [itemCount,SetItemCount] = useState(0);
+    const { addToCart } = useContext(CartContext);
     function onAddItem (count) {
         SetItemCount(count);
-        
+        addToCart(count,item);
     };
     useEffect(()=>{
-        console.log(itemCount);
     },[itemCount])
     return(
         <div className="product-detail">
@@ -22,7 +23,7 @@ export default function ItemDetail({item}){
                 {
                     !itemCount ? 
                     <ItemCount stock={5} initial={0} onAddItem={onAddItem}></ItemCount> :
-                    <Link className="button" to="/cart">Ir al carrito</Link>
+                    <Link className="button" to="/carrito">Ir al carrito</Link>
                 }
                 
                 

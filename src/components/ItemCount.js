@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 
 export default function ItemCount({stock,initial,onAddItem}){
 
@@ -17,7 +17,10 @@ export default function ItemCount({stock,initial,onAddItem}){
     }
 
     function addToCart(){
-        onAddItem(counter)
+        if(counter > 0 ){
+            onAddItem(counter)
+        }
+        
     }
 
     return(

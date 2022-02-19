@@ -1,9 +1,9 @@
 
 import { Link } from "react-router-dom";
 
-export default function Item ({item}){
+export default function Item ({item,key}){
     return (
-        <div className="product" id={item.id}>
+        <div className="product" id={key}>
             <Link to={`/producto/${item.id}`}>
                 <div className="image" style={{ backgroundImage: `url(${item.image})` }}>
                 
