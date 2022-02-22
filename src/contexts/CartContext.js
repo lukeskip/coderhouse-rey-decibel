@@ -9,8 +9,17 @@ export default function CartContextProvider({children}){
     const [total,setTotal] = useState(0);
     
     function addToCart (quantity, item){
+         
         if(isOnCart(item.id)){
-            alert('Ya está en el carrito');
+            const updateCart = cart;
+        
+            let product = updateCart.find(function(found){
+                return found.id === item.id;
+            });
+            
+            product.quantity += quantity; 
+
+            setCart(updateCart);
         }else{
             setCart([...cart,{...item,quantity}]); 
         }
@@ -44,7 +53,7 @@ export default function CartContextProvider({children}){
             return add += item.price * item.quantity;
         })
         setTotal(add);
-        
+        console.log(cart);
     },[cart])
     return (
         <CartContext.Provider value={{cart,addToCart,emptyCart,total,removeItem}}>
