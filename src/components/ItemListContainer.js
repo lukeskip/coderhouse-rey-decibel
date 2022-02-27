@@ -9,20 +9,13 @@ export default function ItemListContainer ({greetings}){
     const { categoryName } = useParams();
     
     useEffect(() => {
-        getItems().then((items) => {
-          if(!categoryName){
-            setItemsList(items);
-          }else{
-            const filterItems = items.filter((item)=> {
-              return item.category === categoryName
-            });
-            setItemsList(filterItems);
-          }
-          
-        }).catch((error) => {
-          console.log(error);
-        });
-      }, [categoryName]);
+      if(!categoryName){
+        getItems().then(items => setItemsList(items)).catch(error => console.log(error));
+      }else{
+        getItems(categoryName).then(items => setItemsList(items)).catch(error => console.log(error));
+      }
+    }, [categoryName]);
+      
 
     return (
         
