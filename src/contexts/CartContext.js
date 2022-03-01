@@ -1,5 +1,7 @@
 import {createContext, useEffect} from 'react';
 import { useState } from 'react';
+import {collection,addDoc} from 'firebase/firestore';
+import { db } from '../firebase-config';
 
 export const CartContext = createContext();
 
@@ -8,7 +10,36 @@ export default function CartContextProvider({children}){
     const [cart,setCart] = useState([]);
     const [total,setTotal] = useState(0);
     const [totalItems,setTotalItems] = useState(0);
+    const [userName,setUserName ] = useState('');
+    const [lastName,setLastName ] = useState('');
+    const [email,setEmail ] = useState('');
+    const [confirmEmail,setConfirmEmail ] = useState('');
+    const [orderId,setOrderId ] = useState('');
+    const [ready,setReady ] = useState(false);
+
     
+    const handleUserName        = event => setUserName(event.target.value);
+    const handleLastName        = event => setLastName(event.target.value);
+    const handleEmail           = event => setEmail(event.target.value);
+    const handleConfirmEmail    = event => setConfirmEmail(event.target.value);
+    
+    
+    function onSubmit(event){
+        event.preventDefault();
+        if(![userName,lastName,email].some(field => field==='')){
+            if(email === confirmEmail){
+                const itemCollection = collection(db,'orders');
+                const newOrder = {userName,lastName,email,products:cart}
+                addDoc(itemCollection,newOrder).then((response)=> {
+                    setOrderId(response.id);
+                });
+            }else{
+                alert("tu correo no coincide con su confirmación");
+            }
+            
+        } 
+    }
+
     function addToCart (quantity, item){
          
         if(isOnCart(item.id)){
@@ -46,6 +77,7 @@ export default function CartContextProvider({children}){
        
     }
 
+    
 
     useEffect(()=>{
         
@@ -58,10 +90,19 @@ export default function CartContextProvider({children}){
         let totalItemsAdd = cart.reduce((acc, item) => ( acc += parseFloat(item.quantity)), 0);
         setTotalItems (totalItemsAdd);
 
-   
+        setOrderId('');
+              
     },[cart])
+
+    useEffect(()=>{
+        if(![userName,lastName,email].some(field => field==='')){
+            setReady(true);
+        }
+    },[userName,lastName,email]);
+
+
     return (
-        <CartContext.Provider value={{cart,addToCart,emptyCart,total,removeItem,totalItems}}>
+        <CartContext.Provider value={{cart,addToCart,emptyCart,total,removeItem,totalItems,handleUserName,handleLastName,handleEmail,handleConfirmEmail,onSubmit,orderId,ready}}>
             {children}
         </CartContext.Provider>
     )

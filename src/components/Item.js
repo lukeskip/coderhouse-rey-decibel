@@ -11,7 +11,6 @@ export default function Item ({item,key}){
                 <h3 className="title">
                     {item.title}
                 </h3>
-                <button>Agregar al carrito</button>
             </Link>
         </div>
     );

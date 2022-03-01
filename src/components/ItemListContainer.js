@@ -9,11 +9,19 @@ export default function ItemListContainer ({greetings}){
     const { categoryName } = useParams();
     
     useEffect(() => {
-      if(!categoryName){
-        getItems().then(items => setItemsList(items)).catch(error => console.log(error));
-      }else{
-        getItems(categoryName).then(items => setItemsList(items)).catch(error => console.log(error));
-      }
+
+      getItems(categoryName).then( snapshot => {
+  
+      const products = snapshot.docs.map((doc)=>{
+  
+       return {id:doc.id,...doc.data()}
+  
+      });
+  
+      setItemsList(products);
+  
+     }).catch(error => error);
+  
     }, [categoryName]);
       
 
