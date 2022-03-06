@@ -9,6 +9,12 @@ main{
     border-radius: 5px;
     margin: 5px;
     text-decoration: none;
+    &:disabled,
+    &[disabled]{
+        border: 1px solid #999999;
+        background-color: #cccccc;
+        color: #666666;
+    }
 }
 
 input{

@@ -1,2 +1,2 @@
-main{padding:20px}.button{background-color:red;color:white;padding:5px 10px;border:0;border-radius:5px;margin:5px;text-decoration:none}input{display:block}
+main{padding:20px}.button{background-color:red;color:white;padding:5px 10px;border:0;border-radius:5px;margin:5px;text-decoration:none}.button:disabled,.button[disabled]{border:1px solid #999999;background-color:#cccccc;color:#666666}input{display:block}
 /*# sourceMappingURL=app.css.map */

@@ -15,7 +15,7 @@ export default function CartContextProvider({children}){
     const [email,setEmail ] = useState('');
     const [confirmEmail,setConfirmEmail ] = useState('');
     const [orderId,setOrderId ] = useState('');
-    const [ready,setReady ] = useState(false);
+    const [ready,setReady ] = useState(true);
 
     
     const handleUserName        = event => setUserName(event.target.value);
@@ -26,6 +26,7 @@ export default function CartContextProvider({children}){
     
     function onSubmit(event){
         event.preventDefault();
+        setReady(true);
         if(![userName,lastName,email].some(field => field==='')){
             if(email === confirmEmail){
                 const itemCollection = collection(db,'orders');
@@ -95,10 +96,12 @@ export default function CartContextProvider({children}){
     },[cart])
 
     useEffect(()=>{
-        if(![userName,lastName,email].some(field => field==='')){
+        if(![userName,lastName,email,confirmEmail].some(field => field==='')){
+            setReady(false);
+        }else{
             setReady(true);
         }
-    },[userName,lastName,email]);
+    },[userName,lastName,email,confirmEmail]);
 
 
     return (

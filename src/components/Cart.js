@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 
 export default function Cart(){
-    const {cart,emptyCart,total,removeItem,handleUserName,handleLastName,handleEmail,handleConfirmEmail,onSubmit,orderId} = useContext(CartContext);
+    const {cart,emptyCart,total,removeItem,handleUserName,handleLastName,handleEmail,handleConfirmEmail,onSubmit,orderId,ready} = useContext(CartContext);
     
     if(orderId !== ''){
         return <>
@@ -50,13 +50,13 @@ export default function Cart(){
                             </div>
                             <div>
                                 <label htmlFor="email">Correo electrónico</label>
-                                <input onChange={handleEmail} type="text" id="email"/>
+                                <input onChange={handleEmail} type="email" id="email"/>
                             </div>
                             <div>
                                 <label htmlFor="email_confirmation">Confirmación de correo Electrónico</label>
-                                <input onChange={handleConfirmEmail} type="text" id="email_confirmation"/>
+                                <input onChange={handleConfirmEmail} type="email" id="email_confirmation" />
                             </div>
-                            <button className="button">Comprar</button>
+                            <button className="button" disabled={ready}>Comprar</button>
                         </form>
                     </div>
                     
